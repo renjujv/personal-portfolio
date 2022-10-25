@@ -24,6 +24,6 @@ jobs:
     - name: Gatsby_Build-GHPages_Deploy
       uses: enriikke/gatsby-gh-pages-action@v2
       with:
-        access-token: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+        access-token: ${{ secrets.PAT }} # GitHub will automatically add this - you don't need to bother getting a token
         gatsby-args: "--"
         deploy-branch: "gh-pages"
