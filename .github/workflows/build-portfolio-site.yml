@@ -1,4 +1,4 @@
-name: Generate a build and push to another branch
+name: Build and push to another branch
 
 on:
   push:
@@ -8,32 +8,20 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
     
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js with cache
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '16'
         cache: 'npm'
-        
-    - run: npm install --legacy-peer-deps
     
-    - run: npm run build --if-present
-    
-    - name: Push to build branch
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: self
-        BRANCH: public # The branch name where you want to push the assets
-        FOLDER: public # The directory where your assets are generated
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-        MESSAGE: "Build: ({sha}) {msg}" # The commit message
+    - name: Gatsby_Build-GHPages_Deploy
+      uses: enriikke/gatsby-gh-pages-action@main
+      with:
+        access-token: ${{ secrets.PAT }}
+        gatsby-args: "--"
+        deploy-branch: "gh-pages"
