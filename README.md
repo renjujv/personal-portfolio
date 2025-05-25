@@ -4,6 +4,8 @@
 [![Build Gatsby website](https://github.com/renjujv/personal-portfolio/actions/workflows/build-portfolio-site.yml/badge.svg)](https://github.com/renjujv/personal-portfolio/actions/workflows/build-portfolio-site.yml)
 [![Page publish-deploy](https://github.com/renjujv/personal-portfolio/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/renjujv/personal-portfolio/actions/workflows/pages/pages-build-deployment)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db9be62b-d372-4c59-9ea1-c27feff16792/deploy-status)](https://app.netlify.com/projects/renjujose/deploys)
+
 <img alt="Blog Screenshot" src="" width="80%" style="padding-left:5px;"/>
 
 ### Tech Used
